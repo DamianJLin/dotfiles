@@ -4,7 +4,7 @@ syntax enable
 
 filetype plugin indent on
 
-colorscheme darcula
+colorscheme darcula "blueshirts/darcula
 "Disable the Background Color Erase that messes with some color schemes
 set t_ut=
 
