@@ -1,0 +1,11 @@
+# ~/.config/alacritty.toml
+
+[shell]
+program = "/usr/bin/zsh"
+
+[font]
+normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
+size = 11.25
+
+[mouse]
+hide_when_typing = true
