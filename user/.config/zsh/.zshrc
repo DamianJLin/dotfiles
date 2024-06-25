@@ -24,4 +24,4 @@ alias ls="ls --color=auto"
 ### Prompt
 autoload -U colors && colors
 
-PS1="[%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg[yellow]%}%1~%{$reset_color%}]  "
+PS1="[%{$fg[red]%}%n%{$reset_color%}@%{$fg[cyan]%}%m %{$fg[blue]%}%1~%{$reset_color%}]  "
