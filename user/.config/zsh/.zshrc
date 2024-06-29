@@ -1,3 +1,8 @@
+### Environment Variables
+export VISUAL=nvim
+export EDITOR="$VISIAL"
+
+
 ### Completion Settings
 # The following lines were added by compinstall
 
