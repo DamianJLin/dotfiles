@@ -578,7 +578,10 @@ require('lazy').setup({
         -- clangd = {},
         -- gopls = {},
         pylsp = {},
-        rust_analyzer = {},
+        rust_analyzer = {
+            -- There appears to be a problem with Mason's rust-analyzer. Use separately installed executable. 2024_06_30
+          cmd = { '/usr/bin/rust-analyzer' },
+        },
         texlab = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
