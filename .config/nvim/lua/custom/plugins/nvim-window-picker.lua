@@ -12,6 +12,7 @@ return {
       filter_rules = {
         bo = {
           filetype = { 'NvimTree', 'neo-tree', 'notify', 'fidget' },
+          buftype = {},
         },
       },
     }
