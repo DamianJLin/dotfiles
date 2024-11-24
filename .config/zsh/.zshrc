@@ -15,6 +15,10 @@ zstyle :compinstall filename '/home/damian/.zshrc'
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
+setopt noautomenu
+setopt nomenucomplete
+
+
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=1000

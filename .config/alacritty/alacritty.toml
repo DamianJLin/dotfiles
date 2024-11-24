@@ -1,6 +1,6 @@
 # ~/.config/alacritty.toml
 
-[shell]
+[terminal.shell]
 program = "/usr/bin/zsh"
 
 [font]
@@ -37,3 +37,5 @@ blue    = '#007FFF'
 magenta = '#FF1493'
 cyan    = '#00CCCC'
 white   = '#FFFAFA'
+
+[terminal]
