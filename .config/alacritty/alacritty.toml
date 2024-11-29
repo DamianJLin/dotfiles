@@ -7,6 +7,7 @@ program = "/usr/bin/zsh"
 normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
 size = 11.25
 
+
 [mouse]
 hide_when_typing = true
 
