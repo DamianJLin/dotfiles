@@ -37,3 +37,6 @@ alias ls="ls --color=auto"
 autoload -U colors && colors
 
 PS1="[%{$fg[red]%}%n%{$reset_color%}@%{$fg[cyan]%}%m %{$fg[blue]%}%1~%{$reset_color%}]  "
+
+### Bind DELETE to intended action
+bindkey "^[[3~" delete-char
