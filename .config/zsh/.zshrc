@@ -38,5 +38,8 @@ autoload -U colors && colors
 
 PS1="[%{$fg[red]%}%n%{$reset_color%}@%{$fg[cyan]%}%m %{$fg[blue]%}%1~%{$reset_color%}]  "
 
-### Bind DELETE to intended action
+### Bind DELETE, HOME, END to their intended actions.
+# Keycodes will depend on the terminal emulator used. Below work with Alacritty.
+bindkey "^[[H"  beginning-of-line
+bindkey "^[[F"  end-of-line
 bindkey "^[[3~" delete-char
