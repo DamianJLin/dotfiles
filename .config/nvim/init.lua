@@ -485,7 +485,7 @@ require('lazy').setup({
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
-        -- clangd = {},
+        clangd = {},
         -- gopls = {},
         pylsp = {},
         rust_analyzer = {
@@ -563,6 +563,15 @@ require('lazy').setup({
       vim.g.vimtex_general_viewer = 'okular'
       vim.g.vimtex_view_general_options = [[file:@pdf#src:@line@tex]]
       vim.g.vimtex_quickfix_enabled = 0
+      vim.g.vimtex_compiler_latexmk = {
+        options = {
+          '-verbose',
+          '-file-line-error',
+          '-synctex=1',
+          '-interaction=nonstopmode',
+          '--shell-escape',
+        },
+      }
     end,
   },
 
