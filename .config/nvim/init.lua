@@ -128,6 +128,12 @@ local open_terminal_J = function()
 end
 vim.keymap.set('n', '<leader>wT', open_terminal_J, { desc = 'Open [T]erminal (wide)' })
 
+-- Open neo-tree git-status float
+local open_git_status = function()
+  require('neo-tree.command').execute { source = 'git_status', position = 'float' }
+end
+vim.keymap.set('n', '<leader>gs', open_git_status, { desc = 'Git [S]tatus' })
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
@@ -206,6 +212,7 @@ require('lazy').setup({
         ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
         ['<leader>w'] = { name = '[W]indow', _ = 'which_key_ignore' },
         ['<leader>t'] = { name = '[T]oggle', _ = 'which_key_ignore' },
+        ['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },
         ['<leader>h'] = { name = 'Git [H]unk', _ = 'which_key_ignore' },
         ['<leader>y'] = { name = 'S[y]mbols', _ = 'which_key_ignore' },
       }
