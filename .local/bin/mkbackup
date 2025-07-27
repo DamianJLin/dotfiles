@@ -1,0 +1,12 @@
+#!/bin/bash
+
+echo "Backing up ~/Documents..."
+rsync -a --delete --partial --info=progress2 --recursive --mkpath ~/Documents/ /run/media/damian/backup/Documents-bak/
+echo "Backing up ~/Pictures..."
+rsync -a --delete --partial --info=progress2 --recursive --mkpath ~/Pictures/ /run/media/damian/backup/Pictures-bak/
+echo "Backing up ~/Projects..."
+rsync -a --delete --partial --info=progress2 --recursive --mkpath ~/Projects/ /run/media/damian/backup/Projects-bak/
+
+# Anki user data
+echo "Backing up Anki user data..."
+rsync -a --delete --partial --info=progress2 --recursive --mkpath $XDG_DATA_HOME/Anki2 /run/media/damian/backup/Anki-bak/
