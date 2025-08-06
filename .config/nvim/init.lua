@@ -206,20 +206,17 @@ require('lazy').setup({
       require('which-key').setup()
 
       -- Document existing key chains
-      require('which-key').register {
-        ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
-        ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
-        ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
-        ['<leader>w'] = { name = '[W]indow', _ = 'which_key_ignore' },
-        ['<leader>t'] = { name = '[T]oggle', _ = 'which_key_ignore' },
-        ['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },
-        ['<leader>h'] = { name = 'Git [H]unk', _ = 'which_key_ignore' },
-        ['<leader>y'] = { name = 'S[y]mbols', _ = 'which_key_ignore' },
+      require('which-key').add {
+        { '', group = '[R]ename' },
+        { '', group = 'Git [H]unk' },
+        { '', group = '[W]indow' },
+        { '', group = '[S]earch' },
+        { '', group = '[G]it' },
+        { '', group = 'S[y]mbols' },
+        { '', group = '[C]ode' },
+        { '', group = '[T]oggle' },
+        { '', desc = '', hidden = true, mode = { 'n', 'n', 'n', 'n', 'n', 'n', 'n', 'n' } },
       }
-      -- visual mode
-      require('which-key').register({
-        ['<leader>h'] = { 'Git [H]unk' },
-      }, { mode = 'v' })
     end,
   },
 
@@ -567,7 +564,7 @@ require('lazy').setup({
     'lervag/vimtex',
     lazy = false,
     init = function()
-      vim.g.vimtex_general_viewer = 'okular'
+      vim.g.vimtex_view_general_viewer = 'okular'
       vim.g.vimtex_view_general_options = [[file:@pdf#src:@line@tex]]
       vim.g.vimtex_quickfix_enabled = 0
       vim.g.vimtex_compiler_latexmk = {
@@ -792,7 +789,7 @@ require('lazy').setup({
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     opts = {
-      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'vim', 'vimdoc' },
+      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'vim', 'vimdoc', 'git_config', 'gitcommit' },
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {
