@@ -6,27 +6,29 @@
 
 ### Exec on startup
 exec fcitx5
-exec_always swaybg -i ~/Pictures/wallpapers/vinhomes_park_fish.jpg -m fill
+exec_always --no-startup-id "swaybg -i /home/damian/Pictures/wallpapers/vinhomes_park_fish.jpg -m fill"
+# exec nohup $XDG_CONFIG_HOME/sway/scripts/get_weather.sh &  # see ../get_weather.sh
 
 ### General Configuration
-mouse_warping none
+# output "*" bg /home/damian/Pictures/wallpapers/vinhomes_park_fish.jpg fill
+# mouse_warping none
 focus_follows_mouse no
 font pango:JetBrainsMonoNerdFontMono Regular 8
 
 ### Colour scheming
 set $focusmute #588157
 set $focus #4a8549
+set $focuslite #699E68
 set $urgent #FB8C00
-set $white #FFFFFF
 
 # class                     border     backgr.     text        flag        child_border
-client.background           #000000    $white      #000000
-client.focused              $focus     $focusmute  $white      #4ac592     $focusmute
-client.focused_inactive     #333333    #5f676a     $white      #484e50     #5f676a
-client.focused_tab_title    #333333    #5f676a     $white
+client.background           #000000    #FFFFFF     #000000
+client.focused              $focus     $focusmute  #FFFFFF     #4ac592     $focusmute
+client.focused_inactive     #333333    #5f676a     #FFFFFF     #484e50     #5f676a
+client.focused_tab_title    #333333    #5f676a     #FFFFFF
 client.unfocused            #333333    #222222     #888888     #292d2e     #222222
 client.urgent               #2f343a    $urgent     #ffffff     $urgent     $urgent
-client.placeholder          #000000    #0c0c0c     $white      #000000     #0c0c0c
+client.placeholder          #000000    #0c0c0c     #FFFFFF     #000000     #0c0c0c
 
 
 ### Variables
@@ -47,7 +49,7 @@ set $menu 'rofi -show drun'
 
 # Lock screen
 # NOTE: It seems swaylock config file is not read properly when it contains an image. Hence, this:
-set $lock exec ~/.config/sway/lock.sh
+set $lock exec /home/damian/.config/sway/scripts/lock.sh
 bindsym $mod+Backspace exec $lock
 
 
@@ -77,6 +79,11 @@ output HDMI-A-1 transform 90
 workspace 1 output HDMI-A-1
 workspace 2 output DP-3
 workspace 3 output eDP-1
+
+# When reconnecting DP-3, it sometimes becomes DP-4
+output DP-4 resolution 2560x1440 position 0,0
+workspace 2 output DP-4
+
 
 ### Idle configuration
 exec swayidle -w \
@@ -259,13 +266,17 @@ bindsym $mod+r mode "resize"
 # Read `man 5 sway-bar` for more information about this section.
 bar {
     position top
+    icon_theme Adwaita
+    # font pango:JetBrainsMonoNerdFont Regular 8
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %X'; do sleep 1; done
+    status_command while ~/.config/sway/scripts/sway_bar.sh; do sleep 1; done
 
     colors {
-        statusline #ffffff
+        statusline #FFFFFF
+        focused_workspace $focuslite $focusmute #FFFFFF
+        urgent_workspace $urgent $urgent #FFFFFF
         background #323232
         inactive_workspace #32323200 #32323200 #5c5c5c
     }

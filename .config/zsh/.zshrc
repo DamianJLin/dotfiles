@@ -1,6 +1,7 @@
 ### Environment Variables
 export VISUAL=nvim
 export EDITOR="$VISIAL"
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
 # PATH
 path+=/home/damian/.cargo/bin
@@ -24,7 +25,6 @@ HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
 unsetopt beep
-bindkey -v
 # End of lines configured by zsh-newuser-install
 
 
@@ -36,7 +36,7 @@ alias ls="ls --color=auto"
 ### Prompt
 autoload -U colors && colors
 
-PS1="[%{$fg[red]%}%n%{$reset_color%}@%{$fg[cyan]%}%m %{$fg[blue]%}%1~%{$reset_color%}]  "
+PS1="[%{$fg[cyan]%}%n%{$reset_color%}@%{$fg[yellow]%}%m %{$fg[blue]%}%1~%{$reset_color%}]  "
 
 ### Bind DELETE, HOME, END to their intended actions.
 # Keycodes will depend on the terminal emulator used. Below work with Alacritty.
