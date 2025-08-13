@@ -8,6 +8,7 @@ normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
 size = 11.25
 
 [window]
+dynamic_title = true
 opacity = 0.85
 
 [mouse]

@@ -11,6 +11,9 @@ vim.g.have_nerd_font = true
 -- NOTE: You can change these options as you wish!
 --  For more options, you can see `:help option-list`
 
+vim.opt.title = true
+vim.opt.titlestring = 'Neovim'
+
 vim.opt.number = true
 
 -- Enable mouse mode, can be useful for resizing splits for example!
@@ -145,6 +148,17 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
   callback = function()
     vim.highlight.on_yank()
+  end,
+})
+
+-- Autocommand to switch window focus in sway back to a Neovim instance for reverse search
+vim.api.nvim_create_autocmd('User', {
+  desc = '',
+  pattern = 'VimtexEventViewReverse',
+  group = vim.api.nvim_create_augroup('init_vimtex', {}),
+  callback = function()
+    vim.system { 'swaymsg', '[title="Neovim"]', 'focus' }
+    vim.fn['vimtex#ui#blink']()
   end,
 })
 
@@ -554,7 +568,7 @@ require('lazy').setup({
   },
 
   { -- vimtex
-    -- DEPENDENCIES: Proper compilation depends on:
+    -- NOTE: DEPENDENCIES. Proper compilation depends on:
     --    * zathura AND a viewer such as zathura-pdf-mupdf (Arch),
     --    * latexmk which can be installed via texlive-binextra (Arch)
     --    * biber (Arch)
@@ -564,8 +578,12 @@ require('lazy').setup({
     'lervag/vimtex',
     lazy = false,
     init = function()
+      -- For okular:
       vim.g.vimtex_view_general_viewer = 'okular'
-      vim.g.vimtex_view_general_options = [[file:@pdf#src:@line@tex]]
+      vim.g.vimtex_view_general_options = [[file:@pdf#src:@line@tex --unique]]
+      -- For sioyek:
+      -- vim.g.vimtex_view_general_viewer = 'siokey'
+
       vim.g.vimtex_quickfix_enabled = 0
       vim.g.vimtex_compiler_latexmk = {
         options = {

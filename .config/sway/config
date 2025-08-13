@@ -83,7 +83,7 @@ output DP-4 resolution 2560x1440 position 0,0
 workspace 2 output DP-4
 
 # *** Home monitor config:
-#output HDMI-A-1 resolution 1920x1080 position 0,0
+# output HDMI-A-1 resolution 1920x1080 position 0,0
 
 
 ### Idle configuration
@@ -266,6 +266,7 @@ bindsym $mod+r mode "resize"
     # Screenshots
     bindsym Print exec grimshot savecopy anything
     bindsym Shift+Print exec mtpaint $( grimshot savecopy anything )
+    bindsym Control+Print exec dolphin "$XDG_SCREENSHOTS_DIR"
 
 #
 # Status Bar:
